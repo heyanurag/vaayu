@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#090f1d" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" />
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+    <title>Vaayu</title>
+  </head>
+
+  <body>
+    <div class="flex flex-col lg:flex-row lg:h-screen">
+      <!-- Map element -->
+      <div
+        class="grow h-[30rem] p-5 lg:h-full lg:basis-2/5 bg-green-400"
+        id="map"></div>
+
+      <!-- AQI element -->
+      <div class="lg:basis-3/5 p-5 font-display bg-background">
+        <h1
+          class="my-3.5 font-medium uppercase text-2xl lg:text-3xl text-white">
+          Current Conditions
+        </h1>
+
+        <div class="bg-white shadow-lg">
+          <div class="flex flex-col lg:flex-row items-center lg:justify-start">
+            <div id="badge" class="badge unhealthy">
+              <span class="aqi">158</span>
+              <span class="aqiQuality bg-red-600">Unhealthy</span>
+            </div>
+
+            <div class="px-5 text-center md:text-justify">
+              <h2 class="text-2xl">Air Quality Index (AQI)</h2>
+              <div class="text-md text-gray-500">
+                <div>
+                  Observed at
+                  <span id="timeObserved">16:00 PDT</span>
+                </div>
+                <div>
+                  From -
+                  <span id="locObserved"></span>
+                </div>
+                <a
+                  id="attribution"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-sm link">
+                  Beijing
+                </a>
+              </div>
+              <hr class="my-2 border-0 bg-gray-300 text-gray-300 h-px" />
+              <div>
+                Health advisory:
+                <span id="healthAdvise" class="p-1 bg-gray-100 text-gray-600">
+                  Small concern for people sensitive to air pollution
+                </span>
+              </div>
+            </div>
+          </div>
+          <hr class="my-2 border-0 bg-gray-300 text-gray-300 h-px" />
+
+          <div class="text-gray-500 text-md my-4 mx-5">
+            Note: Values above 500 are considered Beyond the AQI. Follow
+            recommendations for the Hazardous category. Additional information
+            on reducing exposure to extremely high levels of particle pollution
+            <a
+              href="https://airnow.gov/index.cfm?action=aqibasics.pmhilevels"
+              target="_blank"
+              rel="noopener"
+              class="link">
+              is available here
+            </a>
+            .
+          </div>
+
+          <hr class="mx-6 my-2 border-0 bg-gray-300 text-gray-300 h-px" />
+
+          <h3 class="mx-6 my-3 uppercase text-lg font-medium text-gray-500">
+            AQI - Pollutant Details
+          </h3>
+          <div
+            class="mx-6 grid grid-cols-1 gap-3 md:grid-cols-2"
+            id="pollutantDetails">
+            <div class="pollutant">
+              <div class="badge-poll safe">32</div>
+              <div>Hydrogen</div>
+            </div>
+            <div class="pollutant">
+              <div class="badge-poll unhealthy unhealthy-ring">153</div>
+              <div>PM (2.5)</div>
+            </div>
+          </div>
+          <hr class="mx-6 my-3 border-0 bg-gray-300 text-gray-300 h-px" />
+
+          <div class="text-gray-500 text-md my-4 mx-6">
+            Note: The dominant pollutant is indicated by a ring around it.
+          </div>
+
+          <hr class="mx-6 my-3 border-0 bg-gray-300 text-gray-300 h-px" />
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

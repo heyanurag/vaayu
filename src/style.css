@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.badge {
+  @apply font-display m-6 w-40 h-40 rounded-full text-center select-none flex items-center justify-center flex-col;
+}
+
+.aqi {
+  @apply my-4 pt-8 text-7xl;
+}
+
+.aqiQuality {
+  @apply text-white w-28 py-px text-base font-medium rounded uppercase;
+}
+
+.unhealthy {
+  @apply bg-opacity-50 bg-red-300 text-red-600;
+}
+
+.pollutant {
+  @apply flex flex-col items-center justify-start text-center;
+}
+
+.badge-poll {
+  @apply w-12 h-12 rounded-full text-center select-none flex items-center justify-center font-medium text-lg;
+}
+
+.unhealthy-ring {
+  @apply ring-2 ring-inset ring-red-500;
+}
+.safe {
+  @apply bg-opacity-50 bg-green-300 text-green-600;
+}
