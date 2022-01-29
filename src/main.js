@@ -1,6 +1,7 @@
 import "./style.css";
 import { getIPLocation } from "./getIPLocation";
 import { getAQIData } from "./getAQIData";
+import { displayData } from "./displayData";
 
 const location = await getIPLocation();
 
@@ -26,10 +27,12 @@ const geocoder = new MapboxGeocoder({
 map.addControl(geocoder);
 
 geocoder.on("result", async (results) => {
-  console.log(results);
+  // console.log(results);
   const val = await getAQIData(results.result.center);
-  console.log(val);
+  // console.log(val);
+  displayData(val);
 });
 
 const AQIData = await getAQIData(location);
-console.log(AQIData);
+// console.log(AQIData);
+displayData(AQIData);

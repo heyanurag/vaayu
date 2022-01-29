@@ -27,8 +27,8 @@
     <div class="flex flex-col lg:flex-row lg:h-screen">
       <!-- Map element -->
       <div
-        class="grow h-[30rem] p-5 lg:h-full lg:basis-2/5 bg-green-400"
-        id="map"></div>
+        id="map"
+        class="grow h-[30rem] p-5 lg:h-full lg:basis-2/5 bg-green-400"></div>
 
       <!-- AQI element -->
       <div class="lg:basis-3/5 p-5 font-display bg-background">
@@ -39,43 +39,42 @@
 
         <div class="bg-white shadow-lg">
           <div class="flex flex-col lg:flex-row items-center lg:justify-start">
-            <div id="badge" class="badge unhealthy">
-              <span class="aqi">158</span>
-              <span class="aqiQuality bg-red-600">Unhealthy</span>
+            <div id="badge" class="good">
+              <span id="aqi">158</span>
+              <span id="aqi-text">Unhealthy</span>
             </div>
 
-            <div class="px-5 text-center md:text-justify">
+            <div class="px-5 text-center lg:text-justify">
               <h2 class="text-2xl">Air Quality Index (AQI)</h2>
-              <div class="text-md text-gray-500">
+              <div class="text-gray-500">
                 <div>
                   Observed at
-                  <span id="timeObserved">16:00 PDT</span>
+                  <span id="time-observed">16:00 PDT</span>
                 </div>
                 <div>
                   From -
-                  <span id="locObserved"></span>
+                  <span id="loc-observed"></span>
                 </div>
                 <a
                   id="attribution"
-                  href="#"
                   target="_blank"
                   rel="noopener"
                   class="text-sm link">
                   Beijing
                 </a>
               </div>
-              <hr class="my-2 border-0 bg-gray-300 text-gray-300 h-px" />
+              <hr class="divider" />
               <div>
                 Health advisory:
-                <span id="healthAdvise" class="p-1 bg-gray-100 text-gray-600">
+                <span id="health-advise" class="p-1 bg-gray-100 text-gray-600">
                   Small concern for people sensitive to air pollution
                 </span>
               </div>
             </div>
           </div>
-          <hr class="my-2 border-0 bg-gray-300 text-gray-300 h-px" />
+          <hr class="mx-5 divider" />
 
-          <div class="text-gray-500 text-md my-4 mx-5">
+          <div class="text-gray-500 my-4 mx-5">
             Note: Values above 500 are considered Beyond the AQI. Follow
             recommendations for the Hazardous category. Additional information
             on reducing exposure to extremely high levels of particle pollution
@@ -89,16 +88,14 @@
             .
           </div>
 
-          <hr class="mx-6 my-2 border-0 bg-gray-300 text-gray-300 h-px" />
+          <hr class="mx-5 divider" />
 
-          <h3 class="mx-6 my-3 uppercase text-lg font-medium text-gray-500">
+          <h3 class="mx-5 my-3 uppercase text-lg font-medium text-gray-500">
             AQI - Pollutant Details
           </h3>
-          <div
-            class="mx-6 grid grid-cols-1 gap-3 md:grid-cols-2"
-            id="pollutantDetails">
+          <div id="pollutant-container">
             <div class="pollutant">
-              <div class="badge-poll safe">32</div>
+              <div class="badge-poll good">32</div>
               <div>Hydrogen</div>
             </div>
             <div class="pollutant">
@@ -106,14 +103,31 @@
               <div>PM (2.5)</div>
             </div>
           </div>
-          <hr class="mx-6 my-3 border-0 bg-gray-300 text-gray-300 h-px" />
 
-          <div class="text-gray-500 text-md my-4 mx-6">
+          <template id="template">
+            <div class="pollutant">
+              <div class="badge-poll">32</div>
+              <div class="pollutant-text">Hydrogen</div>
+            </div>
+          </template>
+
+          <hr class="mx-5 divider" />
+
+          <div class="text-gray-500 my-4 mx-5">
             Note: The dominant pollutant is indicated by a ring around it.
           </div>
 
-          <hr class="mx-6 my-3 border-0 bg-gray-300 text-gray-300 h-px" />
+          <hr class="mx-5 divider" />
         </div>
+        <footer class="text-white text-center text-lg">
+          Made with ♥ by
+          <a
+            target="_blank"
+            href="https://twitter.com/anuragstwt"
+            class="underline hover:cursor-pointer"
+            >anurag</a
+          >
+        </footer>
       </div>
     </div>
     <script type="module" src="/src/main.js"></script>

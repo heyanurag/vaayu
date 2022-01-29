@@ -2,33 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-.badge {
-  @apply font-display m-6 w-40 h-40 rounded-full text-center select-none flex items-center justify-center flex-col;
+#badge {
+  @apply m-6 w-40 h-40 rounded-full text-center select-none flex flex-col items-center justify-center bg-opacity-50;
 }
 
-.aqi {
+#aqi {
   @apply my-4 pt-8 text-7xl;
 }
 
-.aqiQuality {
+#aqi-text {
   @apply text-white w-28 py-px text-base font-medium rounded uppercase;
 }
 
+#pollutant-container {
+  @apply mx-5 flex flex-col lg:flex-row flex-wrap justify-around;
+}
+
+.good {
+  @apply bg-green-300 text-green-600 nth-child:bg-green-600;
+}
+
+.moderate {
+  @apply bg-yellow-300 text-yellow-600 nth-child:bg-yellow-600;
+}
+
+.usg {
+  @apply bg-orange-300 text-orange-600 nth-child:bg-orange-600;
+}
+
 .unhealthy {
-  @apply bg-opacity-50 bg-red-300 text-red-600;
+  @apply bg-red-300 text-red-600 nth-child:bg-red-600;
 }
 
-.pollutant {
-  @apply flex flex-col items-center justify-start text-center;
+.vu {
+  @apply bg-purple-300 text-purple-600 nth-child:bg-purple-600;
 }
 
-.badge-poll {
-  @apply w-12 h-12 rounded-full text-center select-none flex items-center justify-center font-medium text-lg;
+.hazardous {
+  @apply bg-rose-300 text-rose-600 nth-child:bg-rose-600;
+}
+
+.good-ring {
+  @apply ring-2 ring-inset ring-green-500;
+}
+
+.moderate-ring {
+  @apply ring-2 ring-inset ring-yellow-500;
+}
+
+.usg-ring {
+  @apply ring-2 ring-inset ring-orange-500;
 }
 
 .unhealthy-ring {
   @apply ring-2 ring-inset ring-red-500;
 }
-.safe {
-  @apply bg-opacity-50 bg-green-300 text-green-600;
+
+.vu-ring {
+  @apply ring-2 ring-inset ring-purple-500;
+}
+
+.hazardous-ring {
+  @apply ring-2 ring-inset ring-rose-500;
+}
+
+.link {
+  @apply hover:underline text-blue-600 hover:text-blue-800;
+}
+
+.divider {
+  @apply my-2 border-0 bg-gray-300 text-gray-300 h-px;
+}
+
+.pollutant {
+  @apply flex flex-col items-center justify-start text-center mx-5 my-2 lg:w-20;
+}
+
+.badge-poll {
+  @apply w-12 h-12 mb-1 rounded-full text-center select-none flex items-center justify-center font-medium text-lg bg-opacity-50;
 }
